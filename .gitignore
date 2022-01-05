@@ -1,0 +1,8 @@
+# Rubymine project files
+.idea/
+.idea/*
+
+# Initial futzing around files + api keys etc
+draft1/storage/*
+draft1/brain-dumpt.txt
+draft1/using-official-api.txt
