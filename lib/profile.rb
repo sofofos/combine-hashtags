@@ -15,6 +15,7 @@ class Profile
       @json_data = JSON.parse(file)
     else
       puts "file #{file_path} not found"
+
     end
   end
 
@@ -28,7 +29,5 @@ class Profile
       @posts << Post.new(post_url, img_url, caption, timestamp)
     end
   end
-
-
 
 end

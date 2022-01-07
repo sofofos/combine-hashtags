@@ -19,7 +19,11 @@ As a user I can...
 TODO's:
   - Store API credentials securely and set as environment variables - DONE
   - Write bash/zsh script for setting env vars by user?  - DONE
-  - Write the Post class w/ attributes img_url, post_url, caption, tags
-  - Refactor the query script properly (env vars + get next pagination)
-  - Write the interface (CLI first, UI after)
-  -
+  - Write the Post class w/ attributes img_url, post_url, caption, tags - DONE
+  - Refactor the query script properly (env vars + get next pagination) - DONE
+
+  - Write the interface (CLI first, UI after) - TBRefx from tester.rb and possibly split into view/controller/router classes
+  - Add methods to Post class for extracting tags, sorting, counting, etc.. 
+  - Write the search_hashtags methods (figure out where to put them... interface? profile?)
+  - Check if query.rb should have further encapsulation (class? module? controller class?)
+  
