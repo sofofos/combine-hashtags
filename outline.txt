@@ -18,8 +18,8 @@ As a user I can...
 
 TODO's:
   - Store API credentials securely and set as environment variables - DONE
-  - Write bash/zsh script for setting env vars by user?
-  - Refactor the query script properly (env vars + get next pagination)
+  - Write bash/zsh script for setting env vars by user?  - DONE
   - Write the Post class w/ attributes img_url, post_url, caption, tags
+  - Refactor the query script properly (env vars + get next pagination)
   - Write the interface (CLI first, UI after)
   -
