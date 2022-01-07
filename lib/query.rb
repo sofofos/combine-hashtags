@@ -6,7 +6,7 @@ require 'rest-client'
 
 def save_response(data)
   time_id = Time.now
-  File.write("draft1/storage/query-self#{time_id.min}.json", JSON.dump(data))
+  File.write("lib/query-self#{time_id.min}.json", JSON.dump(data))
 end
 
 # def hashtag_query(user_id, access_token)
@@ -24,6 +24,8 @@ def api_query
 
   response = RestClient.get request
   JSON.parse(response)
+  # puts access_token
+  # puts user_id
 end
 
 save_response(api_query)
