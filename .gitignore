@@ -6,7 +6,6 @@
 draft1/
 draft1/*
 draft1/storage/*
-query.rb
 
 # credentials
 .env*
