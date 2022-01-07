@@ -1,0 +1,25 @@
+CASE 1:
+# Use regex to match the json data and write it into a file for easier reading
+# CLI: search_script $hashtag1 $hashtag2
+  - search keywords hardcoded for now based on downloaded files
+  - as such, FIle.open($hashtag1), read and JSON.parse
+  - search every caption for text containing $hashtag2
+  - for each result, instantiate a Post object with parameters: url, caption
+    JSON.entry_data.TagPage[0].data.recent.sections[3].layout_content.medias[0].media.caption
+
+CASE 2:
+
+Write a gem based on querying the basic API (ie own profile)
+As a user I can...
+  search for my posts containing a combination of hashtags
+  see what hashtags I use most
+  get suggestions for hashtags that appear with other hashtags
+  get a link to each post matching my search
+
+TODO's:
+  - Store API credentials securely and set as environment variables - DONE
+  - Write bash/zsh script for setting env vars by user?  - DONE
+  - Write the Post class w/ attributes img_url, post_url, caption, tags
+  - Refactor the query script properly (env vars + get next pagination)
+  - Write the interface (CLI first, UI after)
+  -
