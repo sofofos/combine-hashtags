@@ -23,7 +23,14 @@ TODO's:
   - Refactor the query script properly (env vars + get next pagination) - DONE
 
   - Write the interface (CLI first, UI after) - TBRefx from tester.rb and possibly split into view/controller/router classes
-  - Add methods to Post class for extracting tags, sorting, counting, etc.. 
+  
+  - Add methods to Post class for extracting tags, sorting, counting, etc.. DONE: [extract, tally, popular] FOLLOW: sort + others?
+
   - Write the search_hashtags methods (figure out where to put them... interface? profile?)
-  - Check if query.rb should have further encapsulation (class? module? controller class?)
+    - search query contains: #tagA #tagB #tagC
+    - search all posts containing #tagA (class method like Post.all)
+  
+  - Check if query.rb should have further encapsulation (class? module? controller class?) 
+  
+  - Maybe a further version should avoid writing and reading files, and instead instantiate Profile directly from query methods?
   

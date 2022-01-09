@@ -3,6 +3,9 @@
 require 'json'
 require 'rest-client'
 
+# => TODO: maybe create profile instance here since already parsing JSON?
+# require_relative 'profile'
+
 def build_query
   base = 'https://graph.instagram.com/me/media'
   access_token = ENV['ACCESS_TOKEN']
@@ -35,4 +38,4 @@ def get_next_query(data_json)
 end
 
 # get profile posts, save to json files and
-query_api(build_query)
+# query_api(build_query)
