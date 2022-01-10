@@ -12,9 +12,12 @@ class Controller
     @posts = clean
   end
 
+  def clean
+    @profile.posts.select { |post| post unless post.tags.empty? }
+  end
+
   def list
-    most_pop = Post.popular
-    content = most_pop.sort_by { |_, value| -value }
+    content = Post.popular.sort_by { |_, value| -value }
     @view.tags(content.first(10))
   end
 
@@ -25,17 +28,9 @@ class Controller
     @view.results(results)
   end
 
-  def clean
-    @profile.posts.select { |post| post unless post.tags.empty? }
-  end
-
   def match(keywords)
-    layer_one = @posts.select { |post| post.tags.include?(keywords[:first]) }
-    layer_one.select { |post| post.tags.include?(keywords[:second]) }
-  end
-
-  def start_trace
-    trace = TracePoint.new(:call) { |tp| p [tp.method_id] }
-    trace.enable
+    first_set = @posts.select { |post| post.tags.include?(keywords[:first]) }
+    second_set = first_set.select { |post| post.tags.include?(keywords[:second]) }
+    keywords[:third].empty? ? second_set : second_set.select { |post| post.tags.include?(keywords[:third]) }
   end
 end
