@@ -1,37 +1,46 @@
 require_relative 'profile'
 
+# View class for CLI display
 class View
   def initialize
     @tags = {}
-    @title_list = 'These are your 10 most popular hashtags:'
-    @title_search = 'Showing X results:'
+    @list = 'These are your 10 most popular hashtags:'
+    @search = 'Showing X results:'
   end
 
-  def display_title(string)
+  def title(type)
+    title = type == 'list' ? @list : @search
     puts '  --------------------------------------------'
-    puts "    #{string}"
+    puts "    #{title}"
     puts '  --------------------------------------------'
   end
 
-  def display_tags(content)
+  def tags(content)
+    title('list')
     content.each_with_index do |value, index|
-      puts "  #{index + 1} => #{value[0]} appears #{value[1]} times in this profile"
+      puts "  #{index + 1} - #{value[0]} appears #{value[1]} times in this profile"
       puts ''
     end
   end
 
-  def display_links(results)
-    puts '*********************************************'
+  def results(results)
+    @search.gsub!('X', results.size.to_s)
+    title('search')
+    puts ''
+    links(results)
+    puts ''
+  end
+
+  def links(results)
     results.each_with_index do |value, index|
       preview = value.caption.gsub("\n", '').scan(/^[a-zA-Z\s\S][^#@]*/)
       puts ''
       puts "  #{index + 1} - Post preview:"
       puts "  #{preview.first}"
-      puts "  Go to: #{value.post_url}"
+      puts "  Go to => #{value.post_url}"
       puts ' '
       puts '* * * * * * * * * * * * * * * * * * * * * *'
     end
-    puts '*********************************************'
   end
 
   def search
@@ -43,4 +52,4 @@ class View
     @tags[:second] = gets.chomp
     @tags
   end
- end
+end

@@ -15,16 +15,14 @@ class Controller
   def list
     most_pop = Post.popular
     content = most_pop.sort_by { |_, value| -value }
-    @view.display_title(@view.title_list)
-    @view.display_tags(content.first(10))
+    @view.tags(content.first(10))
   end
 
   def search
     list
     keywords = @view.search
     results = match(keywords)
-    @view.display_title(@view.title_search)
-    @view.display_links(results)
+    @view.results(results)
   end
 
   def clean
@@ -34,5 +32,10 @@ class Controller
   def match(keywords)
     layer_one = @posts.select { |post| post.tags.include?(keywords[:first]) }
     layer_one.select { |post| post.tags.include?(keywords[:second]) }
+  end
+
+  def start_trace
+    trace = TracePoint.new(:call) { |tp| p [tp.method_id] }
+    trace.enable
   end
 end
