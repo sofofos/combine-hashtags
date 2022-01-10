@@ -7,9 +7,6 @@ class Controller
   def initialize(profile)
     @profile = profile
     @view = View.new
-
-    # get only searchable posts by removing posts w/o hashtags
-    @posts = clean
   end
 
   def clean
@@ -34,3 +31,9 @@ class Controller
     keywords[:third].empty? ? second_set : second_set.select { |post| post.tags.include?(keywords[:third]) }
   end
 end
+  # def suggest
+#     @first_set
+#     # receive a set of posts
+#     # tally the most popular tags in that set
+#     # suggest the top ten, or a random sample?
+#   end
