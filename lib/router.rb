@@ -6,7 +6,7 @@ class Router
 
   def run
     puts "Welcome!"
-    puts "           --           "
+    puts "---"
 
     while @running
       display_tasks

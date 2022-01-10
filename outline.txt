@@ -22,15 +22,18 @@ TODO's:
   - Write the Post class w/ attributes img_url, post_url, caption, tags - DONE
   - Refactor the query script properly (env vars + get next pagination) - DONE
 
-  - Write the interface (CLI first, UI after) - TBRefx from tester.rb and possibly split into view/controller/router classes
+  - Write the interface (CLI first, UI after) - TBRefx from tester.rb and possibly split into view/controller/router classes - DONE.. needs polishing tho
   
-  - Add methods to Post class for extracting tags, sorting, counting, etc.. DONE: [extract, tally, popular] FOLLOW: sort + others?
+  - Add methods to Post class for extracting tags, sorting, counting, etc.. DONE: [extract, tally, popular] FOLLOW: sort + others? - DONE... sorting moved to controller
 
-  - Write the search_hashtags methods (figure out where to put them... interface? profile?)
-    - search query contains: #tagA #tagB #tagC
-    - search all posts containing #tagA (class method like Post.all)
+  - Write the search_hashtags methods (figure out where to put them... interface? profile?) - DONE... controller + router
+    - search query contains: #tagA #tagB - DONE
+    - search all posts containing #tagA , then select containing #tagB - DONE
   
-  - Check if query.rb should have further encapsulation (class? module? controller class?) 
+  - Check if query.rb should have further encapsulation (class? module? controller class?) - TBRefx: query still separate from overall process
+    - Maybe a further version should avoid writing and reading files, and instead instantiate Profile directly from query methods? 
   
-  - Maybe a further version should avoid writing and reading files, and instead instantiate Profile directly from query methods?
-  
+  - CLI barebones is done. Forget about nested menus here. Next:
+    - UI: Get a mini frontend w/ bootstrap and smol rails app going
+      - Grid to display posts as cards: thumbnail preview, caption + post permalink
+    - Nested menu translates better here with navigation + links betw/ views
