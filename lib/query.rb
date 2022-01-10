@@ -28,8 +28,7 @@ end
 
 def save(data_json)
   time = Time.now
-  time_id = "#{time.min}_#{time.sec}"
-  File.write("lib/storage/query-#{time_id}.json", JSON.dump(data_json))
+  File.write("storage/query-els#{time.sec}.json", JSON.dump(data_json))
 end
 
 def get_next_query(data_json)
@@ -37,5 +36,5 @@ def get_next_query(data_json)
   query_api(next_request)
 end
 
-# get profile posts, save to json files and
-# query_api(build_query)
+# get profile posts, store as json files, get next pagination, rinse repeat
+query_api(build_query)

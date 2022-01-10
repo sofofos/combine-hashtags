@@ -15,6 +15,7 @@ class Controller
   def list
     most_pop = Post.popular
     content = most_pop.sort_by { |_, value| -value }
+    @view.display_title(@view.title_list)
     @view.display_tags(content.first(10))
   end
 
@@ -22,6 +23,7 @@ class Controller
     list
     keywords = @view.search
     results = match(keywords)
+    @view.display_title(@view.title_search)
     @view.display_links(results)
   end
 

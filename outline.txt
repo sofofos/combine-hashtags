@@ -22,13 +22,17 @@ TODO's:
   - Write the Post class w/ attributes img_url, post_url, caption, tags - DONE
   - Refactor the query script properly (env vars + get next pagination) - DONE
 
-  - Write the interface (CLI first, UI after) - TBRefx from tester.rb and possibly split into view/controller/router classes - DONE.. needs polishing tho
+  - Write the interface (CLI first, UI after) - TBRefx from tester.rb 
+    - Possibly split into view/controller/router classes - DONE.. needs polishing tho
   
-  - Add methods to Post class for extracting tags, sorting, counting, etc.. DONE: [extract, tally, popular] FOLLOW: sort + others? - DONE... sorting moved to controller
+  - Add methods to Post class for extracting tags, sorting, counting, etc.. DONE: [extract, tally, popular] 
+    - FOLLOW: sort + others? - DONE... sorting moved to controller
 
   - Write the search_hashtags methods (figure out where to put them... interface? profile?) - DONE... controller + router
     - search query contains: #tagA #tagB - DONE
     - search all posts containing #tagA , then select containing #tagB - DONE
+    - add 3rd tag option search cause shit is cooler with Elsa's data now 
+    - or add feature to preview associated hashtags from first query? ie "these are found with your search"
   
   - Check if query.rb should have further encapsulation (class? module? controller class?) - TBRefx: query still separate from overall process
     - Maybe a further version should avoid writing and reading files, and instead instantiate Profile directly from query methods? 
