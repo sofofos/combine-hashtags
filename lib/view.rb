@@ -50,6 +50,8 @@ class View
     puts 'Type the 2nd hashtag you would like to search with'
     puts '>'
     @tags[:second] = gets.chomp
+    puts 'Enter a 3rd hashtag, or press enter to skip'
+    @tags[:third] = gets.chomp
     @tags
   end
 end
