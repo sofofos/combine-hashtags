@@ -1,5 +1,5 @@
-require 'json'
 require_relative 'post'
+require 'json'
 
 class Profile
   attr_accessor :posts
@@ -38,5 +38,3 @@ class Profile
     load_posts
   end
 end
-
-

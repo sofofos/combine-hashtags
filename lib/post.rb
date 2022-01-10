@@ -1,7 +1,7 @@
 require 'date'
 
 class Post
-  attr_accessor :tags, :caption, :test
+  attr_accessor :tags, :caption, :post_url
 
   @@tags = []
 
@@ -16,20 +16,17 @@ class Post
 
   def extract_tags
     @tags << @caption.scan(/#\w*/)
+    @tags.flatten!
     @@tags << @tags
+    @tags = @tags.join(' ')
   end
 
+# TODO: verify if redundant & remove (added flatten! to instance var ^)
   def self.tags
     @@tags.flatten
   end
 
   def self.popular
-    test
     tags.tally.select { |_, value| value > 3 }
   end
-
-  def self.test
-    puts "wow you're popular"
-  end
-
 end
