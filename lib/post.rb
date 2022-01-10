@@ -24,12 +24,6 @@ class Post
   end
 
   def self.popular
-    test
     tags.tally.select { |_, value| value > 3 }
   end
-
-  def self.test
-    puts "wow you're popular"
-  end
-
 end
