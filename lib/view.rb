@@ -47,7 +47,7 @@ class View
     puts 'Type the 1st hashtag you would like to search with'
     puts '>'
     @tags[:first] = gets.chomp
-    yield if block_given?
+    # yield if block_given?
     puts 'Type the 2nd hashtag you would like to search with'
     puts '>'
     @tags[:second] = gets.chomp
