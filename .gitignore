@@ -10,4 +10,5 @@ draft1/storage/*
 # credentials
 .env*
 lib/*.json
-lib/storage/*
+lib/query/storage/*
+v0/*
