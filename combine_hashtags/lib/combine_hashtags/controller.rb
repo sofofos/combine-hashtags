@@ -1,6 +1,4 @@
-require 'lib/combine_hashtags/profile'
-require 'lib/combine_hashtags/post'
-require 'lib/combine_hashtags/view'
+# frozen_string_literal: true
 
 # controller class to direct user actions
 class CombineHashtags::Controller
@@ -31,9 +29,4 @@ class CombineHashtags::Controller
     keywords[:third].empty? ? second_set : second_set.select { |post| post.tags.include?(keywords[:third]) }
   end
 
-#   def suggest
-#     receive a set of posts
-#     tally the most popular tags in that set
-#     suggest the top ten, or a random sample?
-#   end
 end

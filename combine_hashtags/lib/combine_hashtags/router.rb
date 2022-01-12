@@ -1,4 +1,6 @@
-# Router for the CLI
+# frozen_string_literal: true
+
+# Router for CLI
 class CombineHashtags::Router
   def initialize(controller)
     @controller = controller
@@ -6,8 +8,8 @@ class CombineHashtags::Router
   end
 
   def run
-    puts 'Welcome!'
-    puts '---'
+    puts "Welcome!"
+    puts "---"
 
     while @running
       display_tasks
@@ -26,7 +28,7 @@ class CombineHashtags::Router
     # when 3 then @controller.suggest
     when 0 then stop
     else
-      puts 'Please select an option'
+      puts "Please select an option"
     end
   end
 
@@ -35,12 +37,12 @@ class CombineHashtags::Router
   end
 
   def display_tasks
-    puts ''
-    puts 'What do you want to do next?'
-    puts '1 - See my most popular hashtags'
-    puts '2 - Start a search'
-    # puts '3 - Search with suggestions'
-    puts '    ---'
-    puts '0 - Stop and exit the program'
+    puts ""
+    puts "What do you want to do next?"
+    puts "1 - See my most popular hashtags"
+    puts "2 - Start a search"
+    # puts "3 - Search with suggestions"
+    puts "   ---"
+    puts "0 - Stop and exit the program"
   end
 end

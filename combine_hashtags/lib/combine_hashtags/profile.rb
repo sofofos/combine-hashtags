@@ -1,6 +1,9 @@
-require 'combine_hashtags/post'
-require 'json'
+# frozen_string_literal: true
 
+require "combine_hashtags/post"
+require "json"
+
+# Profile class to instantiate a user's profile and load their IG content
 class CombineHashtags::Profile
   attr_accessor :posts
 
@@ -21,11 +24,11 @@ class CombineHashtags::Profile
   end
 
   def load_posts
-    @json_data['data'].map do |post|
-      post_url = post['permalink']
-      img_url = post['media_url']
-      caption = post['caption'] || ''
-      timestamp = post['timestamp']
+    @json_data["data"].map do |post|
+      post_url = post["permalink"]
+      img_url = post["media_url"]
+      caption = post["caption"] || ""
+      timestamp = post["timestamp"]
 
       @posts << Post.new(post_url, img_url, caption, timestamp)
     end
