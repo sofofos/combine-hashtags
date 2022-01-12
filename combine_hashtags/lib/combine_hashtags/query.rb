@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "json"
-require "rest-client"
-
 # Queries the instagram API with basic permissions AKA only self"s profile
 class CombineHashtags::Query
   def build_query

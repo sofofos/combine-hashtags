@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "lib/combine_hashtags/profile"
+# require "lib/combine_hashtags/profile"
 
 # View class for CLI display
 class CombineHashtags::View

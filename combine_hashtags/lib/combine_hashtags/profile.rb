@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "combine_hashtags/post"
-require "json"
+# require "combine_hashtags/post"
+# require "json"
 
 # Profile class to instantiate a user's profile and load their IG content
 class CombineHashtags::Profile
