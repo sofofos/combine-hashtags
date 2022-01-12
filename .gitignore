@@ -12,3 +12,8 @@ draft1/storage/*
 lib/*.json
 lib/query/storage/*
 v0/*
+
+combine_hashtags/pkg/*
+combine_hashtags/*.gem
+combine_hashtags/.bundle
+combine_hashtags/.env
