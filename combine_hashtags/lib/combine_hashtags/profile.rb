@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# require "combine_hashtags/post"
-# require "json"
+require "json"
+require "combine_hashtags/post"
 
 # Profile class to instantiate a user's profile and load their IG content
 class CombineHashtags::Profile
@@ -30,7 +30,7 @@ class CombineHashtags::Profile
       caption = post["caption"] || ""
       timestamp = post["timestamp"]
 
-      @posts << Post.new(post_url, img_url, caption, timestamp)
+      @posts << CombineHashtags::Post.new(post_url, img_url, caption, timestamp)
     end
   end
 

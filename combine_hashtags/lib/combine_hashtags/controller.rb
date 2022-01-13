@@ -4,7 +4,8 @@
 class CombineHashtags::Controller
   def initialize(profile)
     @profile = profile
-    @view = View.new
+    @posts = clean
+    @view = CombineHashtags::View.new
   end
 
   def clean
@@ -12,7 +13,7 @@ class CombineHashtags::Controller
   end
 
   def list
-    content = Post.popular.sort_by { |_, value| -value }
+    content = CombineHashtags::Post.popular.sort_by { |_, value| -value }
     @view.tags(content.first(10))
   end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "date"
-require_relative "../combine_hashtags"
+# require_relative "../combine_hashtags"
 
 # Post class for profile content
 class CombineHashtags::Post
@@ -22,7 +22,7 @@ class CombineHashtags::Post
     @tags << @caption.scan(/#\w*/)
     @tags.flatten!
     @@tags << @tags
-    @tags = @tags.join(' ')
+    @tags = @tags.join(" ")
   end
 
   # TODO: verify if redundant & remove (added flatten! to instance var ^)

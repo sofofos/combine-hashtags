@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # require "lib/combine_hashtags/profile"
 
 # View class for CLI display
@@ -10,6 +8,7 @@ class CombineHashtags::View
     @search = "Showing X results:"
   end
 
+# formatting title appearance in CLI
   def title(type)
     title = type == "list" ? @list : @search
     puts "  --------------------------------------------"

@@ -1,7 +1,14 @@
 # frozen_string_literal: true
 
+require "rest-client"
+require "dotenv/load"
+
 # Queries the instagram API with basic permissions AKA only self"s profile
 class CombineHashtags::Query
+  def initialize
+    @request = build_query
+  end
+
   def build_query
     base = "https://graph.instagram.com/me/media"
     access_token = ENV["ACCESS_TOKEN"]
@@ -10,10 +17,12 @@ class CombineHashtags::Query
     "#{base}?fields=#{field}&access_token=#{access_token}"
   end
 
-  def call_api(request)
-    response = RestClient.get request
+  def call_api
+    response = RestClient.get @request
     parse(response)
   end
+
+  private
 
   def parse(response)
     posts_json = JSON.parse(response)
@@ -25,11 +34,11 @@ class CombineHashtags::Query
 
   def save(data_json)
     time = Time.now
-    File.write("storage/query-els#{time.sec}.json", JSON.dump(data_json))
+    File.write("#{ENV["TEST_STORAGE_PATH"]}-#{time.sec}.json", JSON.dump(data_json))
   end
 
   def get_next_query(data_json)
-    next_request = data_json["paging"]["next"]
-    query_api(next_request)
+    @request = data_json["paging"]["next"]
+    call_api
   end
 end

@@ -1,23 +1,28 @@
 # frozen_string_literal: true
-require 'dotenv'
-  
+require "dotenv/load"
+require "combine_hashtags/profile"
+require "combine_hashtags/controller"
+require "combine_hashtags/router"
+require "combine_hashtags/query"
+
   # methods for CLI usage
   class CombineHashtags::CLI
+
     def initialize
       @file_path = ENV["TEST_FILES_PATH"]
-      @profile = Profile.new(@file_path)
+      @profile = CombineHashtags::Profile.new(@file_path)
+      @query = CombineHashtags::Query.new
       fetch_all
 
-      @controller = Controller.new(@profile)
-      @router = Router.new(@controller)
-      @query = Query.new.build_query
+      @controller = CombineHashtags::Controller.new(@profile)
+      @router = CombineHashtags::Router.new(@controller)
     end
 
-    # get profile posts, store as json files, get next pagination, rinse repeat
+    # call the api to get profile posts, store as json files, get next pagination, rinse repeat
     def fetch_all
-      @query.call_api(build_query)
+      @query.call_api
       7.times do |i|
-        new_path = ENV["TEST_FILES_PATH"].gsub("els00", "els0#{i}")
+        new_path = ENV["TEST_FILES_PATH"].gsub("els00", "els#{i}")
         @profile.update(new_path)
       end
     end
