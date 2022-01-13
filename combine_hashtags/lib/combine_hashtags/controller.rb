@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 # controller class to direct user actions
+# TODO: move @view actions to CLI to avoid useless method calling in Rails app
+
 class CombineHashtags::Controller
   def initialize(profile)
     @profile = profile
     @posts = clean
-    @view = CombineHashtags::View.new
+    @view = CombineHashtags::View.new 
     @query = CombineHashtags::Query.new
   end
 

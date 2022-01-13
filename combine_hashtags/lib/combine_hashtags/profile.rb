@@ -3,7 +3,8 @@
 require "json"
 require "combine_hashtags/post"
 
-# Profile class to instantiate a user's profile and load their IG content
+# Profile class to instantiate a user's profile 
+# and load their IG content from JSON stored locally
 class CombineHashtags::Profile
   attr_accessor :posts
 

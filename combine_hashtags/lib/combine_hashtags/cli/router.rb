@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# frozen_string_literal: tru
 
 # Router for CLI
 class CombineHashtags::Router

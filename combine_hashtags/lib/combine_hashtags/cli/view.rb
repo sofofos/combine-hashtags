@@ -1,5 +1,3 @@
-# require "lib/combine_hashtags/profile"
-
 # View class for CLI display
 class CombineHashtags::View
   def initialize
