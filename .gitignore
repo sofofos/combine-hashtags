@@ -2,18 +2,13 @@
 .idea/
 .idea/*
 
-# Initial futzing around files + api keys etc
-draft1/
-draft1/*
-draft1/storage/*
-
 # credentials
 .env*
 lib/*.json
 lib/query/storage/*
 v0/*
 
-combine_hashtags/pkg/*
-combine_hashtags/*.gem
-combine_hashtags/.bundle
-combine_hashtags/.env
+pkg/*
+*.gem
+.bundle
+.env
