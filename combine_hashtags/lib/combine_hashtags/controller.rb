@@ -1,12 +1,11 @@
-require_relative 'profile'
-require_relative 'post'
-require_relative 'view'
+# frozen_string_literal: true
 
 # controller class to direct user actions
-class Controller
+class CombineHashtags::Controller
   def initialize(profile)
     @profile = profile
-    @view = View.new
+    @posts = clean
+    @view = CombineHashtags::View.new
   end
 
   def clean
@@ -14,7 +13,7 @@ class Controller
   end
 
   def list
-    content = Post.popular.sort_by { |_, value| -value }
+    content = CombineHashtags::Post.popular.sort_by { |_, value| -value }
     @view.tags(content.first(10))
   end
 
@@ -31,9 +30,4 @@ class Controller
     keywords[:third].empty? ? second_set : second_set.select { |post| post.tags.include?(keywords[:third]) }
   end
 
-#   def suggest
-#     receive a set of posts
-#     tally the most popular tags in that set
-#     suggest the top ten, or a random sample?
-#   end
 end

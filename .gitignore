@@ -10,4 +10,10 @@ draft1/storage/*
 # credentials
 .env*
 lib/*.json
-lib/storage/*
+lib/query/storage/*
+v0/*
+
+combine_hashtags/pkg/*
+combine_hashtags/*.gem
+combine_hashtags/.bundle
+combine_hashtags/.env

@@ -1,6 +1,10 @@
-require 'date'
+# frozen_string_literal: true
 
-class Post
+require "date"
+# require_relative "../combine_hashtags"
+
+# Post class for profile content
+class CombineHashtags::Post
   attr_accessor :tags, :caption, :post_url
 
   @@tags = []
@@ -18,10 +22,10 @@ class Post
     @tags << @caption.scan(/#\w*/)
     @tags.flatten!
     @@tags << @tags
-    @tags = @tags.join(' ')
+    @tags = @tags.join(" ")
   end
 
-# TODO: verify if redundant & remove (added flatten! to instance var ^)
+  # TODO: verify if redundant & remove (added flatten! to instance var ^)
   def self.tags
     @@tags.flatten
   end
