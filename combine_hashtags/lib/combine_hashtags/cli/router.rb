@@ -23,9 +23,10 @@ class CombineHashtags::Router
 
   def route_action(action)
     case action
-    when 1 then @controller.list
-    when 2 then @controller.search
-    # when 3 then @controller.suggest
+    when 1 then @controller.setup
+    when 2 then @controller.list
+    when 3 then @controller.search
+    # when 4 then @controller.suggest
     when 0 then stop
     else
       puts "Please select an option"
@@ -39,9 +40,10 @@ class CombineHashtags::Router
   def display_tasks
     puts ""
     puts "What do you want to do next?"
-    puts "1 - See my most popular hashtags"
-    puts "2 - Start a search"
-    # puts "3 - Search with suggestions"
+    puts "1 - Fetch data for a new profile"
+    puts "2 - See profile's most popular hashtags"
+    puts "3 - Start a search"
+    # puts "4 - Search with suggestions"
     puts "   ---"
     puts "0 - Stop and exit the program"
   end

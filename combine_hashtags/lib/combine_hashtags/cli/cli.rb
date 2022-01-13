@@ -2,16 +2,14 @@
 require "dotenv/load"
 require "combine_hashtags/profile"
 require "combine_hashtags/controller"
-require "combine_hashtags/router"
-require "combine_hashtags/query"
+require "combine_hashtags/cli/router"
 
-  # methods for CLI usage
+  # methods for CLI implementation
   class CombineHashtags::CLI
 
     def initialize
       @file_path = ENV["TEST_FILES_PATH"]
       @profile = CombineHashtags::Profile.new(@file_path)
-      @query = CombineHashtags::Query.new
       fetch_all
 
       @controller = CombineHashtags::Controller.new(@profile)
@@ -20,9 +18,8 @@ require "combine_hashtags/query"
 
     # call the api to get profile posts, store as json files, get next pagination, rinse repeat
     def fetch_all
-      @query.call_api
       7.times do |i|
-        new_path = ENV["TEST_FILES_PATH"].gsub("els00", "els#{i}")
+        new_path = ENV["TEST_FILES_PATH"].gsub("00", "#{i}")
         @profile.update(new_path)
       end
     end

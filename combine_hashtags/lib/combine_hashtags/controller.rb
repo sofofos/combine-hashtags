@@ -6,6 +6,12 @@ class CombineHashtags::Controller
     @profile = profile
     @posts = clean
     @view = CombineHashtags::View.new
+    @query = CombineHashtags::Query.new
+  end
+
+  def setup
+    puts "loading..."
+    @query.call_api
   end
 
   def clean

@@ -34,7 +34,7 @@ class CombineHashtags::Query
 
   def save(data_json)
     time = Time.now
-    File.write("#{ENV["TEST_STORAGE_PATH"]}-#{time.sec}.json", JSON.dump(data_json))
+    File.write("#{ENV["TEST_STORAGE_PATH"]}els-#{time.sec}.json", JSON.dump(data_json))
   end
 
   def get_next_query(data_json)
