@@ -24,8 +24,8 @@ class CombineHashtags::Router
   def route_action(action)
     case action
     when 1 then @controller.setup
-    when 2 then @controller.list
-    when 3 then @controller.search
+    when 2 then @controller.list { |content| return content }
+    when 3 then @controller.search { |results| return results }
     # when 4 then @controller.suggest
     when 0 then stop
     else

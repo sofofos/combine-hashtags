@@ -4,9 +4,9 @@
 # TODO: move @view actions to CLI to avoid useless method calling in Rails app
 
 class CombineHashtags::Controller
-  def initialize(profile)
+  def initialize(profile) 
     @profile = profile
-    @posts = clean
+    @posts = clean 
     @view = CombineHashtags::View.new 
     @query = CombineHashtags::Query.new
   end
@@ -21,15 +21,15 @@ class CombineHashtags::Controller
   end
 
   def list
-    content = CombineHashtags::Post.popular.sort_by { |_, value| -value }
-    @view.tags(content.first(10))
+    @content = CombineHashtags::Post.popular.sort_by { |_, value| -value }
+    block_given? ? yield(@content) : @view.tags(content.first(10))
   end
 
   def search
     list
     keywords = @view.search
     results = match(keywords)
-    @view.results(results)
+    block_given? ? yield(@results) : @view.results(results)
   end
 
   def match(keywords)
