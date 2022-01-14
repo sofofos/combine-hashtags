@@ -50,7 +50,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/combine_hashtags.
+Bug reports and pull requests are welcome on GitHub at https://github.com/sofofos/combine_hashtags.
 
 ## License
 
