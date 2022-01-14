@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+# TODO: Change class name, or move methods out, as its maybe
+#       not so clear why Profile deals with file operations?
 
 require "json"
 require "combine_hashtags/post"
@@ -39,5 +41,12 @@ class CombineHashtags::Profile
     @file_path = file_path
     load_file
     load_posts
+  end
+
+  # remove existing profile data
+  def destroy
+    puts "removing current files"
+    string = "#{ENV["STORAGE_PATH"]}*.json" 
+    `rm #{string}`
   end
 end

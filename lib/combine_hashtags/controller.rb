@@ -5,19 +5,21 @@
 class CombineHashtags::Controller
   def initialize(profile) 
     @profile = profile
-    @posts = clean 
+    @posts = clean_posts
     @view = CombineHashtags::View.new 
     @query = CombineHashtags::Query.new
   end
 
-# fetches data from IG api and stores it locally
+# fetches data for a new profile and stores it locally
   def setup
+    # removing previous profile
+    @profile.destroy
     puts "loading..."
     @query.call_api
   end
 
 # removes posts w/o hashtags
-  def clean
+  def clean_posts
     @profile.posts.select { |post| post unless post.tags.empty? }
   end
 
