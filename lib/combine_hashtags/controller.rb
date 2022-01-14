@@ -23,8 +23,8 @@ class CombineHashtags::Controller
 
 # returns 10 most popular/used hashtags
   def list
-    @content = CombineHashtags::Post.popular.sort_by { |_, value| -value }
-    block_given? ? yield(@content) : @view.tags(content.first(10))
+    content = CombineHashtags::Post.popular.sort_by { |_, value| -value }
+    @view.tags(content.first(10))
   end
 
   # displays popular hashtags, gets search keywords from user, returns matching posts
@@ -32,7 +32,7 @@ class CombineHashtags::Controller
     list 
     keywords = @view.search
     results = match(keywords)
-    @view.results(results)
+    @view.results(results.first(10))
   end
 
   # checks if keywords match any of the tags included in each post 

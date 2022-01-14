@@ -8,7 +8,7 @@ require "combine_hashtags/cli/router"
   class CombineHashtags::CLI
     
     def initialize
-      @file_path = ENV["TEST_FILES_PATH"]
+      @file_path = ENV["FILE_PATH"]
       @profile = CombineHashtags::Profile.new(@file_path)
       fetch_all
 
@@ -19,7 +19,7 @@ require "combine_hashtags/cli/router"
     # sets new file_path/name for results of query's "next" pagination, update the profile, rinse repeat
     def fetch_all
       7.times do |i|
-        new_path = ENV["FILE_PATH"].gsub("00", "#{i}")
+        new_path = ENV["FILE_PATH"].gsub("00", "0#{i}")
         @profile.update(new_path)
       end
     end

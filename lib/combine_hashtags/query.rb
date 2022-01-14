@@ -50,8 +50,8 @@ class CombineHashtags::Query
 
     # Forces a value between 0-9 to name the files sequentially
     file_id = time.sec % 10
-    filename =  ENV["FILE_NAME"].gsub("00",file_id)
-    File.write("#{ENV["FILE_PATH"]}#{filename}.json", JSON.dump(data_json))
+    new_file = ENV["FILE_PATH"].gsub("00","0#{file_id}")
+    File.write("#{new_file}", JSON.dump(data_json))
   end
 
   def get_next_query(data_json)

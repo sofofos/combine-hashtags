@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
-
 # executable to query the api and get json data stored locally in rails
+
+# add project lib folder to the load path
+lib_dir = File.realpath('../lib', __dir__)
+$LOAD_PATH.unshift lib_dir
 
 require "dotenv/load"
 require "combine_hashtags"
@@ -11,4 +14,4 @@ require "combine_hashtags/query"
 
 @query.call_api
 
-puts "files loaded at #{ENV["TEST_STORAGE_PATH"]}"
+puts "files loaded at #{ENV["STORAGE_PATH"]}"

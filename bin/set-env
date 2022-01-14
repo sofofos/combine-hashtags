@@ -22,10 +22,10 @@ save_to_env("ACCESS_TOKEN", access_token)
 # Stores path for storage directory (API response will be stored here)
 puts "Set a path for local storage"
 puts " >"
-file_path = gets.chomp
-file_path += "/" unless file_path[-1] == "/"
+storage_path = gets.chomp
+storage_path += "/" unless storage_path[-1] == "/"
 
-save_to_env("FILE_PATH", file_path)
+save_to_env("STORAGE_PATH", storage_path)
 
 # Set a filename for saving API's fetched data locally
 puts "Choose a file name (no extension)"
@@ -33,7 +33,8 @@ puts " >"
 file_name = gets.chomp
 file_name += "-00.json"
 
-save_to_env("FILE_NAME", file_name)
+file_path = "#{storage_path}#{file_name}"
+save_to_env("FILE_PATH", file_path)
 
 puts ""
 puts "All done"
