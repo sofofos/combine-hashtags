@@ -1,11 +1,15 @@
 #!/usr/bin/env ruby
 
+# executable to query the api and get json data stored locally in rails
+
 require "combine_hashtags"
 require "dotenv/load"
 
 filepath =  ENV["TEST_FILES_PATH"]
 profile = CombineHashtags::Profile.new(filepath)
 @controller = CombineHashtags::Controller.new(profile)
+
+@controller.setup
 
 
 puts "files loaded"
