@@ -4,11 +4,10 @@
 
 # credentials
 .env*
-lib/*.json
-lib/query/storage/*
-v0/*
 
 pkg/*
 *.gem
 .bundle
-.env
+
+# local data
+storage/*
