@@ -19,7 +19,7 @@ require "combine_hashtags/cli/router"
     # sets new file_path/name for results of query's "next" pagination, update the profile, rinse repeat
     def fetch_all
       7.times do |i|
-        new_path = ENV["TEST_FILES_PATH"].gsub("00", "#{i}")
+        new_path = ENV["FILE_PATH"].gsub("00", "#{i}")
         @profile.update(new_path)
       end
     end

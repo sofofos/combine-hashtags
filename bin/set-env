@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+# Store environment variables securely in a .env file 
+
+# save user input to .env file 
+def save_to_env(key, value) 
+  output = File.open( ".env", "a" )
+  output << "#{key}=#{value} \n" 
+  output.close
+end
+
+# Make sure output starts on a new line
+save_to_env("\n", "")
+
+# Stores instagram access token 
+puts "Type your Instagram API access token:"
+puts " >"
+access_token = gets.chomp
+
+save_to_env("ACCESS_TOKEN", access_token)
+
+# Stores path for storage directory (API response will be stored here)
+puts "Set a path for local storage"
+puts " >"
+file_path = gets.chomp
+file_path += "/" unless file_path[-1] == "/"
+
+save_to_env("FILE_PATH", file_path)
+
+# Set a filename for saving API's fetched data locally
+puts "Choose a file name (no extension)"
+puts " >"
+file_name = gets.chomp
+file_name += "-00.json"
+
+save_to_env("FILE_NAME", file_name)
+
+puts ""
+puts "All done"

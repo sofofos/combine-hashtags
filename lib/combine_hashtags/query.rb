@@ -47,7 +47,11 @@ class CombineHashtags::Query
 
   def save(data_json)
     time = Time.now
-    File.write("#{ENV["TEST_STORAGE_PATH"]}els-#{time.sec}.json", JSON.dump(data_json))
+
+    # Forces a value between 0-9 to name the files sequentially
+    file_id = time.sec % 10
+    filename =  ENV["FILE_NAME"].gsub("00",file_id)
+    File.write("#{ENV["FILE_PATH"]}#{filename}.json", JSON.dump(data_json))
   end
 
   def get_next_query(data_json)

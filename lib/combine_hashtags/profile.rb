@@ -11,7 +11,7 @@ class CombineHashtags::Profile
   # loads json files to create profile and posts
   def initialize(file_path)
     @posts = []
-    update(filepath) 
+    update(file_path) 
   end
 
   def load_file
