@@ -12,4 +12,4 @@ profile = CombineHashtags::Profile.new(filepath)
 @controller.setup
 
 
-puts "files loaded"
+puts "files loaded at #{ENV["TEST_FILES_PATH"]}"
