@@ -55,7 +55,8 @@ class CombineHashtags::View
     end
   end
 
-  def get_keywords
+  # asks the user for the hashtags to search with
+  def ask_keywords
     puts "Type the 1st hashtag you would like to search with"
     puts ">"
     @tags[:first] = gets.chomp
