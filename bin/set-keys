@@ -16,4 +16,5 @@ output = File.open( ".env", "a" )
 output << "ACCESS_TOKEN=#{access_token}" 
 output.close
 
+puts "Make sure to set paths for local storage"
 puts "All done"

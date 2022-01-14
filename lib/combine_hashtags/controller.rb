@@ -1,8 +1,7 @@
 # frozen_string_literal: true
+# TODO: move @view actions to CLI to improve CLI/UI abstraction
 
 # controller class to direct user actions
-# TODO: move @view actions to CLI to avoid useless method calling in Rails app
-
 class CombineHashtags::Controller
   def initialize(profile) 
     @profile = profile
@@ -28,6 +27,7 @@ class CombineHashtags::Controller
     block_given? ? yield(@content) : @view.tags(content.first(10))
   end
 
+  # displays popular hashtags, gets search keywords from user, returns matching posts
   def search
     list 
     keywords = @view.search
@@ -35,7 +35,7 @@ class CombineHashtags::Controller
     @view.results(results)
   end
 
-
+  # checks if keywords match any of the tags included in each post 
   def match(keywords)
     first_set = @posts.select { |post| post.tags.include?(keywords[:first]) }
     second_set = first_set.select { |post| post.tags.include?(keywords[:second]) }

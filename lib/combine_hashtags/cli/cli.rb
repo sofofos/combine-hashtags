@@ -6,7 +6,7 @@ require "combine_hashtags/cli/router"
 
   # methods for CLI implementation
   class CombineHashtags::CLI
-
+    
     def initialize
       @file_path = ENV["TEST_FILES_PATH"]
       @profile = CombineHashtags::Profile.new(@file_path)
