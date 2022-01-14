@@ -20,7 +20,7 @@ access_token = gets.chomp
 save_to_env("ACCESS_TOKEN", access_token)
 
 # Stores path for storage directory (API response will be stored here)
-puts "Set a path for local storage"
+puts "Set a path for local storage of the profile data"
 puts " >"
 storage_path = gets.chomp
 storage_path += "/" unless storage_path[-1] == "/"
@@ -28,7 +28,7 @@ storage_path += "/" unless storage_path[-1] == "/"
 save_to_env("STORAGE_PATH", storage_path)
 
 # Set a filename for saving API's fetched data locally
-puts "Choose a file name (no extension)"
+puts "Add a file name for your profile data (no extension)"
 puts " >"
 file_name = gets.chomp
 file_name += "-00.json"

@@ -36,9 +36,22 @@ class CombineHashtags::View
       puts ""
       puts "  #{index + 1} - Post preview:"
       puts "  #{preview.first}"
+      puts "  Other hashtags:"
+
+      preview_tags(value.tags)
+      
+      puts ""
       puts "  Go to => #{value.post_url}"
       puts " "
       puts "* * * * * * * * * * * * * * * * * * * * * *"
+    end
+  end
+
+  def preview_tags(tags)
+    # TODO: refactor... chaining methods mehhhhh?
+    group = tags.split(" ").sample(10).each_slice(5).to_a
+    group.each do |set| 
+      puts "    #{set.to_s}" 
     end
   end
 

@@ -34,14 +34,16 @@ class CombineHashtags::Controller
     list 
     keywords = @view.search
     results = match(keywords)
-    @view.results(results.first(10))
+    @view.results(results)
   end
 
   # checks if keywords match any of the tags included in each post 
   def match(keywords)
     first_set = @posts.select { |post| post.tags.include?(keywords[:first]) }
     second_set = first_set.select { |post| post.tags.include?(keywords[:second]) }
-    keywords[:third].empty? ? second_set : second_set.select { |post| post.tags.include?(keywords[:third]) }
+    third_set = second_set.select { |post| post.tags.include?(keywords[:third]) }
+    keywords[:third].empty? ? second_set  : third_set
+   
   end
 
 end
