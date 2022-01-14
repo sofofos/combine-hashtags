@@ -55,14 +55,15 @@ class CombineHashtags::View
     end
   end
 
-  def search
+  def get_keywords
     puts "Type the 1st hashtag you would like to search with"
     puts ">"
     @tags[:first] = gets.chomp
-    # yield if block_given?
+
     puts "Type the 2nd hashtag you would like to search with"
     puts ">"
     @tags[:second] = gets.chomp
+   
     puts "Enter a 3rd hashtag, or press enter to skip"
     @tags[:third] = gets.chomp
     @tags

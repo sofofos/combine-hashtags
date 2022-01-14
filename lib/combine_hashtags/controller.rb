@@ -32,7 +32,7 @@ class CombineHashtags::Controller
   # displays popular hashtags, gets search keywords from user, returns matching posts
   def search
     list 
-    keywords = @view.search
+    keywords = @view.get_keywords
     results = match(keywords)
     @view.results(results)
   end
