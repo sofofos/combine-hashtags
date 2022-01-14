@@ -1,12 +1,11 @@
+#!/usr/bin/env ruby
+
 require "combine_hashtags"
 require "dotenv/load"
 
-1. setup the profile 
 filepath =  ENV["TEST_FILES_PATH"]
 profile = CombineHashtags::Profile.new(filepath)
-CombineHashtags::Controller.new(profile)
+@controller = CombineHashtags::Controller.new(profile)
 
 
-
- @controller = CombineHashtags::Controller.new(@profile)
- @router = CombineHashtags::Router.new(@controller)
+puts "files loaded"
