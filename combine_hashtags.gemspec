@@ -9,18 +9,14 @@ Gem::Specification.new do |spec|
   spec.email = ["sofofos.sz@gmail.com"]
 
   spec.summary = "Search combinations of hashtags using the Instagram API"
-  spec.description = "First version limited to Instagram Basic Display permissions"
+  spec.description = "First version limited to Instagram Basic Display permissions
+                      As such, using this gem requires having a Facebook Developper account in order to get an Instagram User Access Token
+                      For more info: https://developers.facebook.com/docs/instagram-basic-display-api/getting-started "
+                      
   spec.homepage = "https://github.com/sofofos/combine-hashtags"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
-  # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
-
-  # spec.metadata["homepage_uri"] = spec.homepage
-  # spec.metadata["source_code_uri"] = spec.homepage
-
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
@@ -33,6 +29,11 @@ Gem::Specification.new do |spec|
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
   spec.add_development_dependency "rspec", "~> 3.2"
+
+  # gems required
+  spec.add_dependency "dotenv" 
+  spec.add_dependency "json" 
+  spec.add_dependency "rest-client" 
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
