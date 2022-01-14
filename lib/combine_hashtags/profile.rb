@@ -8,11 +8,10 @@ require "combine_hashtags/post"
 class CombineHashtags::Profile
   attr_accessor :posts
 
+  # loads json files to create profile and posts
   def initialize(file_path)
-    @file_path = file_path
     @posts = []
-    load_file
-    load_posts
+    update(filepath) 
   end
 
   def load_file

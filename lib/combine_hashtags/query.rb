@@ -31,6 +31,7 @@ class CombineHashtags::Query
 
   private
 
+  # moved to its own methods to keep call_api light-ish
   def bad_request_msg
     puts "Something went wrong. Check that your access token is valid and correctly set in your project's .env"
     puts "Press 0 to exit"

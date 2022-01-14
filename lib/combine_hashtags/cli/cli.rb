@@ -16,7 +16,7 @@ require "combine_hashtags/cli/router"
       @router = CombineHashtags::Router.new(@controller)
     end
 
-    # call the api to get profile posts, store as json files, get next pagination, rinse repeat
+    # sets new file_path/name for results of query's "next" pagination, update the profile, rinse repeat
     def fetch_all
       7.times do |i|
         new_path = ENV["TEST_FILES_PATH"].gsub("00", "#{i}")
