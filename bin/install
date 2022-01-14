@@ -4,15 +4,11 @@
 
 require "dotenv/load"
 require "combine_hashtags"
-require "combine_hashtags/profile"
-require "combine_hashtags/controller"
+require "combine_hashtags/query"
 
 
-filepath =  ENV["TEST_FILES_PATH"]
-profile = CombineHashtags::Profile.new(filepath)
-@controller = CombineHashtags::Controller.new(profile)
+@query = CombineHashtags::Query.new
 
-@controller.setup
+@query.call_api
 
-
-puts "files loaded at #{ENV["TEST_FILES_PATH"]}"
+puts "files loaded at #{ENV["TEST_STORAGE_PATH"]}"
