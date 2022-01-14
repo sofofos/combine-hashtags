@@ -19,11 +19,22 @@ class CombineHashtags::Query
   end
 
   def call_api
-    response = RestClient.get @request
-    parse(response)
+    begin
+      response = RestClient.get @request
+    # prompt the user in case of missing or invalid access_token  
+    rescue RestClient::BadRequest
+      bad_request_msg
+    else
+      parse(response)
+    end
   end
 
   private
+
+  def bad_request_msg
+    puts "Something went wrong. Check that your access token is valid and correctly set in your project's .env"
+    puts "Press 0 to exit"
+  end
 
   def parse(response)
     posts_json = JSON.parse(response)
