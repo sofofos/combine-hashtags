@@ -5,7 +5,7 @@ require "date"
 
 # Post class for profile content
 class CombineHashtags::Post
-  attr_accessor :tags, :caption, :post_url
+  attr_accessor :tags, :caption, :post_url, :img_url, :date
 
   @@tags = []
 

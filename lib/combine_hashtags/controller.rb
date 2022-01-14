@@ -11,26 +11,30 @@ class CombineHashtags::Controller
     @query = CombineHashtags::Query.new
   end
 
+# fetches data from IG api and stores it locally
   def setup
     puts "loading..."
     @query.call_api
   end
 
+# removes posts w/o hashtags
   def clean
     @profile.posts.select { |post| post unless post.tags.empty? }
   end
 
+# returns 10 most popular/used hashtags
   def list
     @content = CombineHashtags::Post.popular.sort_by { |_, value| -value }
     block_given? ? yield(@content) : @view.tags(content.first(10))
   end
 
   def search
-    list
+    list 
     keywords = @view.search
     results = match(keywords)
-    block_given? ? yield(@results) : @view.results(results)
+    @view.results(results)
   end
+
 
   def match(keywords)
     first_set = @posts.select { |post| post.tags.include?(keywords[:first]) }
