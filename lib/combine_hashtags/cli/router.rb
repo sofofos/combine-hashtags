@@ -19,9 +19,7 @@ class CombineHashtags::Router
     end
   end
 
-  private
-
-  def route_action(action)
+  def route_action(action) 
     case action
     when 1 then @controller.setup
     when 2 then @controller.list { |content| return content }
