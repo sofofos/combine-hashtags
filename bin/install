@@ -2,8 +2,11 @@
 
 # executable to query the api and get json data stored locally in rails
 
-require "combine_hashtags"
 require "dotenv/load"
+require "combine_hashtags"
+require "combine_hashtags/profile"
+require "combine_hashtags/controller"
+
 
 filepath =  ENV["TEST_FILES_PATH"]
 profile = CombineHashtags::Profile.new(filepath)
