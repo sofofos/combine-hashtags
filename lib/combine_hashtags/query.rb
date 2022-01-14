@@ -9,6 +9,7 @@ class CombineHashtags::Query
     @request = build_query
   end
 
+  # put together the query URL with access token set in .env
   def build_query
     base = "https://graph.instagram.com/me/media"
     access_token = ENV["ACCESS_TOKEN"]

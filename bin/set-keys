@@ -1,0 +1,16 @@
+#!/usr/bin/env sh/bash
+
+
+# uncomment below to add a .env file to your project
+# touch .env
+# echo '.env*' >> .gitignore
+# git add .gitignore 
+# git commit -m "added .env to .gitignore"
+# git push origin $HEAD
+
+# Store IG access_token securely in a .env file 
+echo "Type your Instagram API access token:"
+read access_token
+echo "ACCESS_TOKEN=${access_token}" >> .env
+
+echo "All done"

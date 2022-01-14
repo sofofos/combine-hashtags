@@ -22,7 +22,7 @@ class CombineHashtags::Router
   def route_action(action) 
     case action
     when 1 then @controller.setup
-    when 2 then @controller.list { |content| return content }
+    when 2 then @controller.list 
     when 3 then @controller.search
     
     when 0 then stop
@@ -41,7 +41,6 @@ class CombineHashtags::Router
     puts "1 - Fetch data for a new profile"
     puts "2 - See profile's most popular hashtags"
     puts "3 - Start a search"
-    # puts "4 - Search with suggestions"
     puts "   ---"
     puts "0 - Stop and exit the program"
   end
